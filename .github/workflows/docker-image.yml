@@ -6,7 +6,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     permissions:
@@ -14,16 +13,16 @@ jobs:
       packages: write
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Login to GHCR
-      uses: docker/login-action@v3
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Build and Push
-      run: |
-        docker build -t ghcr.io/${{ github.repository }}:latest .
-        docker push ghcr.io/${{ github.repository }}:latest
+      - name: Build and Push
+        run: |
+          docker build -t ghcr.io/maoyuna145/gpt-agreement-payment:latest .
+          docker push ghcr.io/maoyuna145/gpt-agreement-payment:latest
