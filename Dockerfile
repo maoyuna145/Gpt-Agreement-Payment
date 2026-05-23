@@ -84,6 +84,7 @@ RUN curl -fsSL "https://github.com/go-gost/gost/releases/download/v${GOST_VERSIO
 # 项目代码（运行时 docker-compose 会用 bind mount 覆盖，方便 git pull 即时生效；
 # 镜像 baked 一份是为了让 `docker run` 不挂载也能裸启）
 COPY pipeline.py ./
+COPY pipeline/ ./pipeline/
 COPY CTF-pay/ ./CTF-pay/
 COPY CTF-reg/ ./CTF-reg/
 COPY scripts/ ./scripts/
